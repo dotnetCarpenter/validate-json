@@ -19,7 +19,7 @@ function validate(input, silent) {
         if( errorPosition.test(exception.message) ) {
 
             const position = exception.message.match(errorPosition)[0]|0
-            
+
 
             warn(
                 input.slice(0, position) +
@@ -30,6 +30,7 @@ function validate(input, silent) {
         }
 
     } finally {
+        validate.running = false
         return valid
     }
 

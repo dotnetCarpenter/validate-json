@@ -1,4 +1,5 @@
 const assert = require("assert")
+const fs = require("fs")
 const validate = require("../")
 
 
@@ -12,3 +13,11 @@ assert(validate('{ "hello": "world" }'))
 assert(validate('{ "hello": 4 }'))
 
 assert.equal(validate('{ hello: 4 }', true), false, "is not valid JSON")
+assert.equal(
+    validate(
+        fs.readFileSync(`${__dirname}/fixture/invalid.json`, "utf8"),
+        true
+    ),
+    false,
+    "is not valid JSON"
+)
