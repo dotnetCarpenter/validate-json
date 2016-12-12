@@ -7,7 +7,7 @@
     "validate-json": "bin/validate.js"
   },
   "scripts": {
-    "test": "node test && validate-json < package.json"
+    "test": "node test && node ./bin/validate.js < package.json && node ./bin/validate.js package.json"
   },
   "author": "dotnetcarpenter <jon.ronnenberg+validate-json@gmail.com>",
   "license": "MIT"
