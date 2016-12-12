@@ -1,0 +1,14 @@
+{
+  "name": "validate-json",
+  "version": "1.0.0",
+  "description": "Validate a JSON file",
+  "main": "index.js",
+  "bin": {
+    "validate-json": "bin/validate.js"
+  },
+  "scripts": {
+    "test": "node test && validate-json < package.json"
+  },
+  "author": "dotnetcarpenter <jon.ronnenberg+validate-json@gmail.com>",
+  "license": "MIT"
+}
