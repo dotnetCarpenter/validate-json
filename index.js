@@ -26,7 +26,9 @@ function validate(input, silent) {
                 red(input.slice(position, position + 1)) +
                 input.slice(position + 1, position + 2)
             )
-            warn( red("-".repeat(position) + "^") )
+
+            // recalculate position so new line doesn't count
+            warn( red("-".repeat(recalcPosition(position, input)) + "^") )
         }
 
     } finally {
@@ -38,4 +40,15 @@ function validate(input, silent) {
     function warn(msg) {
         silent || console.warn(msg)
     }
+}
+
+
+function recalcPosition(position, input) {
+    let i = 0|0, newPos = 0|0
+    do {
+        newPos++
+        if(input[i] === "\n") newPos = 0
+        i++
+    } while (i !== position)
+    return newPos
 }
