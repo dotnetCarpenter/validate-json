@@ -42,16 +42,16 @@ if(help || version) {
     console.log(
 
 
-`${pkg.name} ${pkg.version}`)
+`${pkg.realname} ${pkg.version}`)
 
 
     if(help) {
         console.log(
 
 
-`Usage:  ${pkg.name} path [options]
-        cat file.json | ${pkg.name} [options]
-        ${pkg.name} [options] < file.json
+`Usage:  ${pkg.realname} path [options]
+        cat file.json | ${pkg.realname} [options]
+        ${pkg.realname} [options] < file.json
 
 Options:
       -s, --silent     no text output - will still exit with exitcode 0 or 1

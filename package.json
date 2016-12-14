@@ -1,5 +1,6 @@
 {
-  "name": "validjson",
+  "name": "valid-json-cli",
+  "realname": "validjson",
   "version": "1.1.1",
   "description": "Validate a JSON stream or file",
   "main": "index.js",
