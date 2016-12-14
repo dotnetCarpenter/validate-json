@@ -49,11 +49,14 @@ if(help || version) {
         console.log(
 
 
-`Usage:  validate-json path [options]
-        cat file.json | validate-json [options]
-        validate-json [options] < file.json
+`Usage:  ${pkg.name} path [options]
+        cat file.json | ${pkg.name} [options]
+        ${pkg.name} [options] < file.json
 
-options:\t--silent\t-s`
+Options:
+      -s, --silent     no text output - will still exit with exitcode 0 or 1
+  -V, -v, --version    display version number and exit
+      -h, --help       display this help and exit`
 
 
         )
