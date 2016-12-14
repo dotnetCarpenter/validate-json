@@ -13,10 +13,10 @@
   },
   "author": "dotnetcarpenter <jon.ronnenberg+validjson@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/dotnetcarpenter/validjson",
+  "homepage": "https://github.com/dotnetcarpenter/validate-json",
   "repository": {
     "type": "git",
-    "url": "git@github.com:dotnetCarpenter/validjson.git"
+    "url": "git@github.com:dotnetCarpenter/validate-json.git"
   },
   "bugs": "https://github.com/dotnetcarpenter/validate-json/issues",
   "keywords": [
