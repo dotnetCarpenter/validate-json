@@ -10,7 +10,7 @@ Simpel command line JSON validator written in nodejs.
 ### Installation ###
 
 ```
-npm i -g validjson
+npm i -g valid-json-cli
 ```
 
 
@@ -33,8 +33,8 @@ Options:
 ### Installation and usage with a project ###
 
 ```
-npm i --save validjson
-yarn add validjson
+npm i --save valid-json-cli
+yarn add valid-json-cli
 ```
 
 In your `package.json` you can add:
