@@ -1,7 +1,6 @@
 validjson
 =========
-[![Build Status](https://travis-ci.org/dotnetcarpenter/validate-json.svg?branch=master)](https://travis-ci.org/dotnetcarpenter/validate-json)
-
+[![Build Status](https://travis-ci.org/dotnetCarpenter/validate-json.svg?branch=master)](https://travis-ci.org/dotnetCarpenter/validate-json)
 
 
 Simpel command line JSON validator written in nodejs.
