@@ -39,10 +39,7 @@ const version = args.indexOf("version") > -1
 
 if(help || version) {
     const pkg = require("../package.json")
-    console.log(
-
-
-`${pkg.realname} ${pkg.version}`)
+    console.log(`${pkg.realname}: ${pkg.version}`)
 
 
     if(help) {
@@ -65,7 +62,7 @@ Options:
 }
 /********** END OF CLI HELP **********/
 
-const timeout = setTimeout(exit, 500)
+const timeout = setTimeout(exit.bind(null, false), 500)
 
 if( fs.existsSync(p.argv[2]) ) {
     clearTimeout(timeout)
