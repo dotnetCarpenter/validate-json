@@ -1,6 +1,6 @@
 {
   "name": "validjson",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Validate a JSON stream or file",
   "main": "index.js",
   "bin": {
@@ -18,6 +18,14 @@
     "url": "git@github.com:dotnetCarpenter/validjson.git"
   },
   "bugs": "https://github.com/dotnetcarpenter/validate-json/issues",
-  "keywords": ["validate", "json", "file", "stream", "pipe"],
-  "engines": { "node": ">=4.0" }
+  "keywords": [
+    "validate",
+    "json",
+    "file",
+    "stream",
+    "pipe"
+  ],
+  "engines": {
+    "node": ">=4.0"
+  }
 }
