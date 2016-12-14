@@ -1,0 +1,6 @@
+version: 1.1.{build}
+clone_depth: 1
+build:
+  verbosity: minimal
+test_script:
+- ps: npm test
