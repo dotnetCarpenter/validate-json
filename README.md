@@ -3,7 +3,7 @@ validjson
 [![Build Status](https://travis-ci.org/dotnetCarpenter/validate-json.svg?branch=master)](https://travis-ci.org/dotnetCarpenter/validate-json)
 
 
-Simpel command line JSON validator written in nodejs.
+Simpel command line JSON validator with an API, in nodejs >=6.8.
 
 
 ### Installation ###
@@ -14,10 +14,6 @@ npm i -g valid-json-cli
 
 
 ### Usage ###
-
-Currently the only option which does something is `--silent`, which supress error hint
-on error. It does not matter if you set the option before or after the path if you
-supply a file as parameter. Unknown parameters are ignored.
 
 ```
 Usage:  validjson path [options]
@@ -30,15 +26,25 @@ Options:
       -h, --help       display this help and exit
 ```
 
+Currently the only option which does something is `--silent`, which supresses error hint
+on error. It does not matter if you set the option before or after the path if you
+supply a file as parameter. Unknown parameters are ignored.
+
+The difference between `validjson file.json` and `validjson < file.json` is that
+in the former, nodejs fs is reading the file and
+in the latter, your terminal (e.i. bash etc) is reading the file and streaming it to validjson.
+
+
 ![displays errors in color on the command line](img/Screenshot_from_version_1.1.1.png "Graphical error hint")
 
 
 ### API ###
 
-validjson({String} json, {Boolean} [silent]) : {Boolean} valid
+`validjson({String} json, {Boolean} [silent]) : {Boolean} valid`
 
 + json - the input you want to validate as JSON
-+ silent - an optional option to silent validjson on error
++ silent - an optional option to silent validjson on error - defaults to false
+
 
 ```js
 "use strict"
@@ -54,12 +60,12 @@ const request = http.request({ hostname: "jsonip.com" }, response => {
     response.on("end", () => {
         console.log(`JSON data is ${validjson(json, true) ? "valid" : "invalid"}`)
         console.log(json)
-    });
+    })
 })
 
 request.end()
 ```
-https://runkit.com/585114841ca9e00014bc0cb4/585114841ca9e00014bc0cb5
+Live example: https://runkit.com/585114841ca9e00014bc0cb4/585114841ca9e00014bc0cb5
 
 ### Installation and usage within a project ###
 
@@ -67,13 +73,14 @@ https://runkit.com/585114841ca9e00014bc0cb4/585114841ca9e00014bc0cb5
 npm i --save valid-json-cli
 yarn add valid-json-cli
 ```
+_npm and yarn example_
 
 In your `package.json` you can add:
 
 ```json
 "scripts": {
     "validjson": "validjson",
-    "json": "validjson < file.json | echo Good to go!"
+    "json": "validjson < file.json && echo Good to go!"
 },
 ```
 
@@ -84,3 +91,10 @@ file.js : file1.json
     npm run validjson -- --silent $<
     # do something more
 ```
+_Make example_
+
+### License ###
+
+The MIT License (MIT)
+
+Copyright © 2016 Jon Ege Ronnenberg
