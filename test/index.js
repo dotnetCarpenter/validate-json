@@ -23,4 +23,4 @@ assert.equal(
     false,
     "is not valid JSON"
 )
-assert.equal(validate("lorem"), false, "invalid JSON at position 0 must return false")
+assert.equal(validate("lorem", true), false, "invalid JSON at position 0 must return false")

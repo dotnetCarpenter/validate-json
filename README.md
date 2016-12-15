@@ -4,7 +4,7 @@ validjson
 [![Buld Status Windows](https://ci.appveyor.com/api/projects/status/mvp3262p1qwj2hlx/branch/master?svg=true)](https://ci.appveyor.com/project/dotnetCarpenter/validate-json/)
 
 
-Simpel command line JSON validator with an API, in nodejs >=6.8.
+Simpel command line JSON validator with an API, in nodejs >=7.0.0.
 
 Tested to work in Windows PowerShell and *nix bash terminal.
 

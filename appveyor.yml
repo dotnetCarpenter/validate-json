@@ -3,7 +3,7 @@ clone_depth: 1
 
 # Test against this version of Node.js
 environment:
-  nodejs_version: "6.8"
+  nodejs_version: "7.0.0"
 
 # Install scripts. (runs after repo cloning)
 install:
