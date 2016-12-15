@@ -8,11 +8,14 @@ const fs = require("fs")
 
 
 /********** CLI HELP **********/
+
 const options = {
     help: ["--help", "-h"],
     silent: ["--silent", "-s"],
-    version: ["--version", "-V", "-v"]
+    version: ["--version", "-v"]/*,
+    timeout: ["--timeout", "-t"]*/
 }
+const timeout = 500
 const args =
 flatten(
     p.argv
@@ -20,7 +23,7 @@ flatten(
         .map(param =>
             Object.keys(options)
                 .map(name => options[name].indexOf(param) > -1 && name)
-                .filter(x=>x)
+                .filter(x => x)
         )
 )
 
@@ -32,51 +35,58 @@ function flatten(array, accu = []) {
     return accu
 }
 
-const silent = args.indexOf("silent") > -1
-const help = args.indexOf("help") > -1
-const version = args.indexOf("version") > -1
+const silent = isParam("silent", args)
+const help = isParam("help", args)
+const version = isParam("version", args)
+//const timeout = isParam("timeout", args) || 500
 
+function isParam(name, parameters) {
+    return parameters.indexOf(name) > -1
+}
 
 if(help || version) {
     const pkg = require("../package.json")
     console.log(`${pkg.realname}: ${pkg.version}`)
 
-
     if(help) {
         console.log(
-
-
 `Usage:  ${pkg.realname} path [options]
         cat file.json | ${pkg.realname} [options]
         ${pkg.realname} [options] < file.json
-
+ 
 Options:
       -s, --silent     no text output - will still exit with exitcode 0 or 1
   -V, -v, --version    display version number and exit
       -h, --help       display this help and exit`
-
-
         )
     }
     exit(0)
 }
 /********** END OF CLI HELP **********/
+const flatOptions = flatten(Object.entries(options))
+const filepath = p.argv
+                    .slice(2)
+                    .filter(param =>
+                        !isParam(param, flatOptions))
+                    .join("")
 
-const timeout = setTimeout(exit.bind(null, false), 500)
 
-if( fs.existsSync(p.argv[2]) ) {
-    clearTimeout(timeout)
+const timer = setTimeout(exit.bind(null, false), timeout)
+
+
+if( fs.existsSync(filepath) ) {
+    clearTimeout(timer)
 
     exit(
         validate(
-            fs.readFileSync(p.argv[2], { encoding:"utf8" }),
+            fs.readFileSync(filepath, { encoding:"utf8" }),
             silent
         ))
 } else {
     let input = ""
 
     p.stdin.on("data", data => {
-        clearTimeout(timeout)
+        clearTimeout(timer)
         return input += data
     })
 
@@ -85,6 +95,6 @@ if( fs.existsSync(p.argv[2]) ) {
     })
 }
 
-function exit(valid) {
+function exit(valid, msg) {
     valid ? p.exit(0) : p.exit(1)
 }

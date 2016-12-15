@@ -14,7 +14,7 @@ assert(validate('["hello", "world"]'))
 assert(validate('{ "hello": "world" }'))
 assert(validate('{ "hello": 4 }'))
 
-assert.equal(validate('{ hello: 4 }', true), false, "is not valid JSON")
+assert.equal(validate("{ hello: 4 }", true), false, "is not valid JSON")
 assert.equal(
     validate(
         fs.readFileSync(`${__dirname}/fixture/invalid.json`, "utf8"),
@@ -23,3 +23,4 @@ assert.equal(
     false,
     "is not valid JSON"
 )
+assert.equal(validate("lorem"), false, "invalid JSON at position 0 must return false")
