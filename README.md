@@ -22,10 +22,10 @@ npm i -g valid-json-cli
 Usage:  validjson path [options]
         cat file.json | validjson [options]
         validjson [options] < file.json
-
+ 
 Options:
       -s, --silent     no text output - will still exit with exitcode 0 or 1
-  -V, -v, --version    display version number and exit
+      -v, --version    display version number and exit
       -h, --help       display this help and exit
 ```
 
@@ -39,7 +39,7 @@ in the latter, your terminal (e.i. bash etc) is reading the file and streaming i
 
 
 ![displays errors in color on the command line](img/Screenshot_from_version_1.1.1.png "Graphical error hint")
-
+_Graphical error hint_
 
 ### API ###
 

@@ -56,7 +56,7 @@ if(help || version) {
  
 Options:
       -s, --silent     no text output - will still exit with exitcode 0 or 1
-  -V, -v, --version    display version number and exit
+      -v, --version    display version number and exit
       -h, --help       display this help and exit`
         )
     }
