@@ -3,7 +3,9 @@ clone_depth: 1
 
 # Test against this version of Node.js
 environment:
-  nodejs_version: "7.0.0"
+  matrix:
+  - nodejs_version: "7.0"
+  - nodejs_version: "12"
 
 # Install scripts. (runs after repo cloning)
 install:
