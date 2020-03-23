@@ -8,8 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - CHANGELOG
 
+### Changed
+- Testing on both nodejs 7.0 and 12 on Windows (via Appveyor) 0d5cefa
+
 ### Fixed
 - Set correct nodejs version in package.json e0db85f
+
 ### Removed
 - The `-V` alias option for displaying version 427bdf9
 
