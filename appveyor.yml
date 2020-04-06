@@ -16,9 +16,9 @@ install:
 test_script:
   # Output useful info for debugging.
   - node --version
-  - npm --version
+  - yarn --version
   # run tests
-  - npm test
+  - yarn test
 
 # Don't actually build.
 build: off
