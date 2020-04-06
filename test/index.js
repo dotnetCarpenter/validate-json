@@ -4,7 +4,6 @@ const assert = require("assert")
 const fs = require("fs")
 const validate = require("../")
 
-
 assert(validate instanceof Function, "validate must be a function")
 
 assert(validate("{}"), "empty object is valid JSON")
