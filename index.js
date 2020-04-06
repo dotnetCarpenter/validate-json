@@ -10,12 +10,12 @@ function validate(input, silent) {
         valid = true
     } catch(exception) {
         const errorPosition = /\d+$/
-        const red = process.stdout.isTTY ? msg => `\u001B[31m${msg}\u001B[39m` : x=>x
 
         warn(exception.message)
 
         if( errorPosition.test(exception.message) ) {
 
+            const red = process.stdout.isTTY ? msg => `\u001B[31m${msg}\u001B[39m` : x=>x
             const position = exception.message.match(errorPosition)[0]|0
 
             warn(

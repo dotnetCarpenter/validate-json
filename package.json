@@ -9,7 +9,10 @@
   },
   "scripts": {
     "validjson": "validjson",
-    "test": "node test && node ./bin/validate.js < package.json && node ./bin/validate.js package.json"
+    "test": "node test && yarn test:stream && yarn test:404 && yarn test:404filename",
+    "test:stream": "node ./bin/validate.js < package.json && node ./bin/validate.js package.json",
+    "test:404": "[ $(./bin/validate.js)='File not found' ];",
+    "test:404filename": "[ $(./bin/validate.js missing.js)='missing.js not found' ];"
   },
   "author": "dotnetcarpenter <jon.ronnenberg+validjson@gmail.com>",
   "license": "MIT",
