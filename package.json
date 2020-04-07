@@ -1,7 +1,7 @@
 {
   "name": "valid-json-cli",
   "realname": "validjson",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Validate a JSON stream or file",
   "main": "index.js",
   "bin": {
