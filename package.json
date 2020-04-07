@@ -7,6 +7,10 @@
   "bin": {
     "validjson": "bin/validate.js"
   },
+  "files": [
+    "index.js",
+    "bin/validate.js"
+  ],
   "scripts": {
     "validjson": "validjson",
     "test": "node test/missing.js && node test/index.js && yarn test:stream",
